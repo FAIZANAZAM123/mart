@@ -13,11 +13,9 @@ app.use(cors({
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
-    preflightContinue: false,
-    optionsSuccessStatus: 204
+   
 }));
 // Handle preflight requests
-app.options('*', cors());
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
