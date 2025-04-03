@@ -9,10 +9,15 @@ const cors = require("cors");
 const app = express();
 // app.use(cors());
 app.use(cors({
-    origin: '*', // Allow this origin only
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'], // Add any other headers needed
+    origin: ['https://javohiro2.github.io', 'http://localhost:3000'], // Allow these origins
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 }));
+// Handle preflight requests
+app.options('*', cors());
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
