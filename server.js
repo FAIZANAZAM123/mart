@@ -9,7 +9,7 @@ const cors = require("cors");
 const app = express();
 // app.use(cors());
 app.use(cors({
-    origin: ['https://javohiro2.github.io', 'http://localhost:3000'], // Allow these origins
+    origin: ['*'], // Allow these origins
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
